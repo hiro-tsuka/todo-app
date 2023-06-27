@@ -1,5 +1,5 @@
-#動作確認環境
-windows 
+#動作確認環境  
+Ubuntu 22.04.2 LTS
 
 # Nuxt 3 Minimal Starter
 
