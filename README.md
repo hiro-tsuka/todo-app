@@ -1,13 +1,13 @@
-#動作確認環境  
-Ubuntu 22.04.2 LTS
+# 動作確認環境  
+Ubuntu 22.04.2 LTS  
+node v16.13.1  
+npm 8.1.2
 
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Todoアプリ起動方法
 
 ## Setup
 
-Make sure to install the dependencies:
+必要なライブラリのインストール:
 
 ```bash
 # npm
@@ -20,9 +20,7 @@ pnpm install
 yarn install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## デバッグモードでの起動
 
 ```bash
 # npm
@@ -35,9 +33,12 @@ pnpm run dev
 yarn dev
 ```
 
-## Production
+コマンド入力後ターミナルに表示された指示に従ってアクセスしてください
 
-Build the application for production:
+
+## リリースモードでの起動
+
+アプリケーションをビルド:
 
 ```bash
 # npm
@@ -50,7 +51,7 @@ pnpm run build
 yarn build
 ```
 
-Locally preview production build:
+ビルドされたアプリケーションをプレビュー:
 
 ```bash
 # npm
@@ -63,4 +64,3 @@ pnpm run preview
 yarn preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
