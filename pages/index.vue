@@ -19,6 +19,7 @@ const newTodo = ref('')
 
 const filteredTodos = computed(() => {
   if(isHide.value){
+    // 偽の値だけのtodoを抽出
     return todos.value.filter((e) => !e.done)
   }else{
     return todos.value
@@ -28,7 +29,9 @@ const filteredTodos = computed(() => {
 </script>
 
 <template>
+  <!-- preeventの設定で送信後の自動リロードをキャンセル、addTodoでstoreに新規追加＆newTodoを初期化 -->
   <form @submit.prevent="addTodo(newTodo); newTodo = ''">
+    <!-- 入力された値のとnewtodoRefを同期 -->
     <input v-model="newTodo">
     <button>Add Todo</button>    
   </form>
