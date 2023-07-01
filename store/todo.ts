@@ -12,19 +12,21 @@ export const useTodos = defineStore('todos', {
   state: () => ({
     id: 1,
     todos: [
-        // 初期値の定義
-        { id: 1, title: 'Learn HTML',done: false },
-    ] as  Todo[],
+      // 初期値の定義
+      { id: 1, title: 'Learn HTML', done: false },
+    ] as Todo[],
   }),
   actions: {
     addTodo(todo: string) {
       // newTodoで渡ってきた値をstoreに追加する関数
-      this.todos.push({id: this.id++, title: todo, done: false});
+      if (todo !== "") {
+        this.todos.push({ id: this.id++, title: todo, done: false });
+      }
     },
     removeTodo(id: number) {
-      // 引数に渡されたidとに該当した最初の値をとる
+      // 引数に渡されたidと該当した最初の配列のインデックスをとる
       const index = this.todos.findIndex((todo) => todo.id === id);
-      // 引数で渡ってきたidを削除
+      // 上で見つかった配列のインデックスを削除
       if (index !== -1) {
         this.todos.splice(index, 1);
       }

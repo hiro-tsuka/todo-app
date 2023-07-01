@@ -6,17 +6,19 @@ Copyright © 2023 Iizuka All rights reserved.
 ====================================================================== -->
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
 import { storeToRefs } from "pinia";
 import { useTodos } from '~/store/todo';
-import  todoItem  from '../components/todoItem.vue'
+import  todoItem  from '../components/todoItem.vue';
 const todosStore = useTodos();
 const {addTodo, removeTodo} = todosStore;
+// ストアの値を参照するためのref
 const { todos } = storeToRefs(todosStore);
-
-const isHide = ref(false);
-const newTodo = ref('')
-
+// 完了したtodoを隠すための真偽値
+const isHide = ref<boolean>(false);
+// inputフィールドの値を参照するためのref
+const newTodo = ref<string>('');
+// computedでレンダリング毎にisHideの値に応じてtodosの値をフィルタリングする
 const filteredTodos = computed(() => {
   if(isHide.value){
     // 偽の値だけのtodoを抽出
@@ -24,7 +26,7 @@ const filteredTodos = computed(() => {
   }else{
     return todos.value
   }
-})
+});
 
 </script>
 
@@ -40,6 +42,7 @@ const filteredTodos = computed(() => {
       <todoItem :todo="todo" :removeTodo="removeTodo"></todoItem>
     </li>
   </ul>
+  <!-- isHideの真偽値が反転するたびにfilteredTodosの処理が実行される -->
   <button @click="isHide = !isHide">{{ isHide ? "Show all" : "Hide completed" }}</button>
 </template>
 

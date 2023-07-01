@@ -9,14 +9,14 @@ Copyright © 2023 Iizuka All rights reserved.
 import { Todo } from '../utils/interface';
 
 // storeのstateと、removeTodo関数を渡すprops
-const props = defineProps<{todo:Todo, removeTodo: any}>()
+const props = defineProps<{todo:Todo, removeTodo: (id:number)=>void}>()
 </script>
 
 
 <template>
   <!-- todo.doneの真偽値で非表示の真偽値をバインディング -->
     <input type="checkbox" v-model="todo.done">
-  <!-- todo.doneの真偽値が真の場合はclassの適用 -->
+  <!-- todo.doneの真偽値が真の場合は横線を描画するclassを適用 -->
     <span :class="{done : todo.done}">{{ todo.title }}</span>
     <button @click="removeTodo(todo.id)">X</button>
 </template>
